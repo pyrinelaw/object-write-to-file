@@ -25,11 +25,15 @@ const ObjectWriteToFile = class {
         this.transformLines();
     }
 
-    transformLines(curKey = '', prefix = '', hasNext = false) {
+    transformLines(curKey = '', prefix = '', hasNext = false, type = 'object') {
         const { lines, fileType } = this;
         const data = curKey ? get(this.data, curKey) : this.data;
         const symbol = this.fileType == 'js' ? '\'' : '"';
         const dataKeys = Object.keys(data);
+        // const start = type == 'array' ? '[' : '{';
+        // const end = type == 'array' ? ']' : '}';
+        const start = '{';
+        const end = '}';
 
         if (dataKeys.length == 0) {
             return;
@@ -41,7 +45,6 @@ const ObjectWriteToFile = class {
 
         dataKeys.forEach((key, index) => {
             const value = data[key];
-            const nextValue = data[dataKeys[index + 1]];
             const nextKey = dataKeys[index + 1];
 
             if (value instanceof Array) {
@@ -56,14 +59,14 @@ const ObjectWriteToFile = class {
             if (typeof(value) == 'object') {
                 lines.push(`\t${prefix}${symbol}${key}${symbol}: {`);
                 const childCurKey = curKey ?  `${curKey}.${key}` : key;
-                this.transformLines(`${childCurKey}`, `${prefix + '\t'}`, !!nextValue);
+                this.transformLines(`${childCurKey}`, `${prefix + '\t'}`, !!nextKey);
             }
         });
 
         if (curKey) {
-            lines.push(`${prefix}}${hasNext ? ',' : ''}`);
+            lines.push(`${prefix}${end}${hasNext ? ',' : ''}`);
         } else {
-            lines.push('}');
+            lines.push(end);
         }
     }
 

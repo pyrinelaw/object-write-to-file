@@ -1,6 +1,6 @@
 {
     "name": "object-write-to-file",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "将对象写入文件中",
     "main": "./src/index.js",
     "author": "Pyrine.Law <petrus_law@yeah.net>",
