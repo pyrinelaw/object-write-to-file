@@ -4,6 +4,7 @@
 
 ### 使用示例
 
+
 ```javascript
 const path = require('path');
 const ObjectWriteToFile = require('object-write-to-file');
