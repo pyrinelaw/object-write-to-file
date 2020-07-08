@@ -1,0 +1,38 @@
+{
+    "name": "object-write-to-file",
+    "version": "0.0.1",
+    "description": "将对象写入文件中",
+    "main": "./src/index.js",
+    "author": "Pyrine.Law <petrus_law@yeah.net>",
+    "keywords": [
+        "write-to",
+        "to-file",
+        "write-to-file",
+        "object-to-file",
+        "object-write-to-file",
+        "object",
+        "file"
+    ],
+    "scripts": {
+        "test": "node ./test/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pyrinelaw/object-write-to-file"
+    },
+    "engines": {
+        "node" : ">=8.0.0"
+    },
+    "files": [
+        "src",
+        "test",
+        "Readme.md"
+    ],
+    "dependencies": {
+        "lodash": "^4.17.15",
+        "mkdirp": "^0.5.4"
+    },
+    "license": "MIT"
+}
+  
+  
